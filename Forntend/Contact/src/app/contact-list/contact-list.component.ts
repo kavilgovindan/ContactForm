@@ -1,43 +1,8 @@
-import { Component, Injector } from '@angular/core';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ContactCreateComponent } from '../contact-create/contact-create.component';
+import { Component, Injector, OnInit } from '@angular/core';
 import { Contact } from 'src/Shared/Models/contacts';
 import { Router } from '@angular/router';
-
-interface Country {
-	name: string;
-	flag: string;
-	area: number;
-	population: number;
-}
-
-const COUNTRIES: Country[] = [
-	{
-		name: 'Russia',
-		flag: 'f/f3/Flag_of_Russia.svg',
-		area: 17075200,
-		population: 146989754,
-	},
-	{
-		name: 'Canada',
-		flag: 'c/cf/Flag_of_Canada.svg',
-		area: 9976140,
-		population: 36624199,
-	},
-	{
-		name: 'United States',
-		flag: 'a/a4/Flag_of_the_United_States.svg',
-		area: 9629091,
-		population: 324459463,
-	},
-	{
-		name: 'China',
-		flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-		area: 9596960,
-		population: 1409517397,
-	},
-];
-
+import { ContactsService } from 'src/Shared/Services/contacts.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-contact-list',
@@ -45,14 +10,28 @@ const COUNTRIES: Country[] = [
   styleUrls: ['./contact-list.component.css']
 })
 
-export class ContactListComponent {
-  countries = COUNTRIES;
+export class ContactListComponent implements OnInit {
+  	contacts: Contact[] = [];
 
-  constructor(private router: Router){}
+  	constructor(private router: Router, private contactsService: ContactsService){}
+	
+	async ngOnInit(): Promise<void> {
+		try{
+			this.contacts = await firstValueFrom(this.contactsService.getAll());
+			console.log(this.contacts)
+		}
+		catch{
+			alert("error oocured while trying to get contacts")
+		}		
+	}
 
-  onAddContacts(){
-    this.router.navigate(["contacts/create"])
-  }
+
+	onAddContacts(){
+		this.router.navigate(["contacts/create"])
+	}
   
+	editContact(id: number){
+		this.router.navigate([`contacts/edit/${id}`]);
+	}
 }
 

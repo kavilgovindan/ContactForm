@@ -1,13 +1,13 @@
 
 export interface Contact{
     id:number;
-    FirstName: string;
-    LastName: string;
-    Email: string;
-    PhoneNumber: string;
-    Address: string;
-    City: string;
-    State: string;
-    Country: string;
-    PostalCode: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    address: string;
+    city: string;
+    state: string;
+    country: string;
+    postalCode: string;
 }

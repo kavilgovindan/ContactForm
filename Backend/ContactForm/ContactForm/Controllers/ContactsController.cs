@@ -24,7 +24,7 @@ namespace ContactForm.Controllers
         }
 
         // GET: api/Contacts
-        [Helpers.Authorize]
+        //[Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Contact>>> GetContacts()
         {
@@ -33,7 +33,7 @@ namespace ContactForm.Controllers
         }
 
         // GET: api/Contacts/5
-        [Helpers.Authorize]
+        //[Helpers.Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Contact>> GetContact(int id)
         {
@@ -48,7 +48,7 @@ namespace ContactForm.Controllers
         }
 
         // PUT: api/Contacts/5
-        [Helpers.Authorize]
+        //[Helpers.Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutContact(int id, Contact contact)
         {
@@ -87,7 +87,7 @@ namespace ContactForm.Controllers
         }
 
         // DELETE: api/Contacts/5
-        [Helpers.Authorize]
+        //[Helpers.Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteContact(int id)
         {
