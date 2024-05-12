@@ -1,0 +1,67 @@
+
+<div class="container">
+    <div class="card m-3">
+        <div class="card-header">
+          Add Contact
+        </div>
+        <div class="card-body">
+            <div class="m-2">
+                <Form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label">First name</label>
+                            <input type="text" class="form-control" formControlName="FirstName" id="firstName">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">Last name</label>
+                            <input type="text" class="form-control" formControlName="LastName" id="lastName">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control" formControlName="Email" id="email">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">Phone number</label>
+                            <input type="text" class="form-control" formControlName="PhoneNumber" id="phoneNumber">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" formControlName="Address" id="address">
+                        </div>
+            
+                        <div class="col">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-control" formControlName="City" id="city">
+                        </div>            
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label">State</label>
+                            <input type="text" class="form-control" formControlName="State" id="state">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">Country</label>
+                            <input type="text" class="form-control" formControlName="Country" id="country">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Postal Code</label>
+                            <input type="text" class="form-control" formControlName="PostalCode" id="postalCode">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    
+                </Form>
+            </div>      
+        </div>
+      </div>
+</div>
+
+
