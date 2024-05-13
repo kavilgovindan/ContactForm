@@ -81,7 +81,7 @@ namespace ContactForm.Controllers
         [HttpPost]
         public async Task<ActionResult<Contact>> PostContact(Contact contact)
         {
-            var result = await _contactsService.AddAsync(contact);
+            var result = await _contactsService.updateAsync(contact);
 
             return result;
         }
