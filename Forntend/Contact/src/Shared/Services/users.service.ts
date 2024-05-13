@@ -12,11 +12,11 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  Authenticate(request : AuthenticateRequest){
-    this.http.post<AuthenticateResponse>(this.apiURL+'Users/authenticate', request);
+  Authenticate(request : Partial<AuthenticateRequest>){
+    return this.http.post<AuthenticateResponse>(this.apiURL+'Users/authenticate', request);
   }
 
   get(){
-    this.http.get<AppUser[]>(this.apiURL+'Users');
+    return this.http.get<AppUser[]>(this.apiURL+'Users');
   }
 }

@@ -1,0 +1,29 @@
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    
+    <div class="card text-bg-dark  border-primary">
+        <div class="card-header">
+          <h3 style="text-align: center;">Contact Form</h3>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" style="text-align: center;">Log In</h5>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col">
+                  <label class="form-label">Username</label>
+                  <input type="text" class="form-control" formControlName="username" id="username">
+              </div>            
+            </div>
+            <div class="row">
+              <div class="col">
+                  <label class="form-label">Password</label>
+                  <input type="text" class="form-control" formControlName="password" id="password">
+              </div>
+            </div>
+            <p class="card-text">Login with exsisting credentials. Username: Kavil, Password: kavil@123</p>
+            <button type="submit" class="btn btn-primary">LogIn</button>
+          </form>
+          <!-- <a href="#" >Go to app</a> -->
+        </div>
+      </div>
+</div>

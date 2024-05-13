@@ -1,7 +1,7 @@
 export interface AuthenticateResponse{
-    Id :number;
-    FirstName: string;
-    LastName : string;
-    string?: string;
-    Token: string;
+    id :number;
+    firstName: string;
+    lastName : string;
+    username: string;
+    token: string;
 }

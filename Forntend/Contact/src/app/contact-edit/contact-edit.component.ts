@@ -23,7 +23,7 @@ export class ContactEditComponent implements OnInit {
     postalCode: this.fb.control(''),
     state: this.fb.control('')    
   });
-  private contact: Contact = {id:0, firstName:'',lastName:'',email:'',phoneNumber:'', address:'', city:"", country:'',state:'',postalCode:''};
+  private contact: Contact ;
   private contactId: number = 0;
   
   constructor(private fb: FormBuilder, private contactsService:ContactsService, private router: ActivatedRoute ){}

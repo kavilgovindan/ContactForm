@@ -7,10 +7,13 @@ import { ContactCreateComponent } from './contact-create/contact-create.componen
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from 'src/Shared/AuthGuards/auth-guard.service';
+import { AuthInterceptor } from 'src/Shared/Interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ContactEditComponent,
     ContactListComponent,
     NavBarComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -30,7 +34,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule,   
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthGuardService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
