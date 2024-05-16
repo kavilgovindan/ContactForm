@@ -44,7 +44,7 @@ namespace ContactForm.Services
             {
                 return null;
             }
-            return await _context.Contacts.ToListAsync();
+            return await _context.Contacts.OrderByDescending(x => x.Id).ToListAsync();
         }
 
         public async Task<Contact> getByIdAsync(int id)

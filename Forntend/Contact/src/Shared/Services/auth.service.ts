@@ -14,7 +14,7 @@ export class AuthService {
 
   isLoggedIn() {
     let token = window.localStorage.getItem('authToken');
-    if(token != null || token != undefined){
+    if(token){
       return true;
     }
     return false;
